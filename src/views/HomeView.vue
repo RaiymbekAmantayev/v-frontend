@@ -1,14 +1,53 @@
-<script setup></script>
+<script setup>
+import { onMounted, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+import axios from 'axios'
+
+const isLoaded = ref(false)
+const products = ref([])
+const route = useRoute()
+
+const fetchProducts = async () => {
+  isLoaded.value = false
+  const product_req = await axios.get('http://127.0.0.1:8000/api/products/?&price__lte=1400')
+  products.value = product_req.data.results
+  isLoaded.value = true
+}
+
+
+onMounted(async () => {
+  await fetchProducts()
+})
+
+</script>
+
 
 <style>
-.ul{
-margin: 1%; text-align: center;
+.row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* border: 1px solid black; */
+  margin: 0;
+  height: 30%;
 }
-  /* .d-inline p-2 text-bg-dark{
-    margin: 0% auto;
-  } */
 
+.row> div{
+border: 1px solid black;
+width: 40%;
+height: 21rem;
+width: 15rem; 
+border-radius:7%
+}
+
+/* .card card-hover > a{
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+} */
 </style>
+
 <template>
   <div class="main container" style="background-color:azure ;">
     <h1 class="h1" style="color:brown;">Мечта</h1>
@@ -22,37 +61,28 @@ margin: 1%; text-align: center;
     <div style="text-align: center; margin: 3%;">
     <img src="public/inetshop.jfif" style="height: 270px; text-align: center;" alt="">
   </div>
-  <h2 style="text-align: center;">Новинка</h2>
-  <br>
+  <div style="background-color:antiquewhite; margin 0 ;">
+  <h2 style="text-align:center">Жеңілдіктер</h2>
   <div class="row">
-  <div class="col-sm-6 mb-3 mb-sm-0">
-    <div class="card">
-      <div class="card-body">
-        <img src="public/новинка.jpg" style="width:50%" alt="">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <img src="public/14.png" alt="">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
+  <div class="card card-hover" v-for="product in products" :key="product.id" >
+    <img class="card-img-top" style="height: 60%;" :src="product.image" :alt="product.title"/>
+          <h3 class="card-title">{{ product.title }}</h3>
+           <p style="width: 60%; font-weight: bold; display: inline-block;" class="card-text">Бағасы:{{ product.price }}$</p>
+          
+           <a href="#" class="btn btn-primary" style="border: 3px solid black; margin-top: 0%;">Подробнее</a>
   </div>
 </div>
 </div>
-
+</div>
 
 </template>
 
 <style>
   .main {
     height: 180vh;
+margin:0;
   }
+  .ul{
+margin: 1%; text-align: center;
+}
 </style>
