@@ -1,0 +1,23 @@
+[{
+        "id": 1,
+        "title": "Laptops"
+    },
+
+    {
+        "id": 2,
+        "title": "Phones"
+    },
+
+    {
+        "id": 3,
+        "title": "Airpods"
+    },
+    {
+        "id": 4,
+        "title": "Tv"
+    },
+    {
+        "id": 5,
+        "title": "watch"
+    }
+]
