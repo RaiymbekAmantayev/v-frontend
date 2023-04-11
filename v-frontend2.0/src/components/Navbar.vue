@@ -48,6 +48,7 @@
             <li><RouterLink to="/pricing" class="nav-link px-2 text-white">Pricing</RouterLink></li>
           <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
           <li><RouterLink to="/about" class="nav-link px-2 text-white">About</RouterLink></li>
+          <li><RouterLink to="/cart" class="nav-link px-2 text-white">Cart</RouterLink></li>
         </ul>
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">

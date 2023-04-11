@@ -18,18 +18,21 @@
 </script>
 
 <template>
-    <div class="container-sm sticky-sm-top" style="width: 17%"><img :src="product.image" class="card-img-top" :alt="product.title"></div>
-            <div class="card-body">
+<main style="background-color: beige; width: 100%;">
+    <div class="container-sm sticky-sm-top" style="border: 1px solid black; width: 50%; margin-top: 1%;"><img :src="product.image" style="text-align: left;" class="card-img-top" :alt="product.title"></div>
+            <div style="text-align: center;" class="card-body">
+                <h1>Product</h1>
                 <h5 class="card-title">{{ product.title }}</h5>
-                <p class="card-text">{{ product.price }}</p>
+                <h4 class="card-text">{{ product.price }}</h4>
+                <p class="card-text">{{product.description }}</p>
             </div>
   <div>
-      <h1>Product</h1>
       <div v-if="isLoaded">
-          <p>{{ product.title }}</p>
+          <p>{{ product.category }}</p>
       </div>
       <div v-else>
           ...loading
       </div>
   </div>
+</main>
 </template>

@@ -68,7 +68,7 @@ onMounted(async () => {
     <img class="card-img-top" style="height: 60%;" :src="product.image" :alt="product.title"/>
           <h3 class="card-title">{{ product.title }}</h3>
            <p style="width: 60%; font-weight: bold; display: inline-block;" class="card-text">Бағасы:{{ product.price }}$</p>
-           <button class="podr" onclick="#" >Подробнее</button>
+           <button class="podr" onclick="#" >Толығырақ</button>
   </div>
 </div>
 
