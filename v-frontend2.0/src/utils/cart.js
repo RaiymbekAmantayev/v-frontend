@@ -18,17 +18,16 @@ const cartMethods = {
     removeFromCartById: function(id) {
         const cart = this.getCart()
         const updatedCart = cart.filter((item) => item.id !== id)
-        localStorage.setItem('cart', JSON.stringify(updqatedCart))
+        localStorage.setItem('cart', JSON.stringify(updatedCart))
     },
     clearCart: function() {
         localStorage.removeItem('cart')
     },
     getCartTotal: function() {
         const cart = this.getCart()
-        const total = cart.reduce((acc, item) => {
-
-        }, 0)
+        const total = cart.reduce((acc, item) => acc + item.price, 0)
         return total
     }
 }
+
 export default cartMethods;

@@ -2,6 +2,7 @@
   import {useRoute} from "vue-router";
   import axios from "axios";
   import {onMounted, ref} from "vue";
+  import cartMethods from '../utils/cart'
 
   const route = useRoute()
   const isLoaded = ref(false)
@@ -18,14 +19,21 @@
 </script>
 
 <template>
-<main style="background-color: beige; width: 100%;">
-    <div class="container-sm sticky-sm-top" style="border: 1px solid black; width: 50%; margin-top: 1%;"><img :src="product.image" style="text-align: left;" class="card-img-top" :alt="product.title"></div>
-            <div style="text-align: center;" class="card-body">
-                <h1>Product</h1>
-                <h5 class="card-title">{{ product.title }}</h5>
-                <h4 class="card-text">{{ product.price }}</h4>
-                <p class="card-text">{{product.description }}</p>
-            </div>
+<main style="background-color: bisque;">
+    <div style="height: 650px;">
+<div class=" container card mb-3" style="margin-top: 1%; background-color:beige">
+  <img  style="height: 400px; width:70%;  margin-left: 15%; margin-top: 1%;"  :src="product.image" class="card-img-top" :alt="product.title">
+  <div class="card-body" style="text-align: center;">
+    <h2 class="card-title">Толық ақпарат:</h2>
+    <h3 class="card-text">{{ product.title }}</h3>
+    <p class="card-text" style="font-weight: bold;"><small class="text-muted">{{ product.price }}$</small></p>
+    <p class="card-text" style="font-weight: bold;"><small class="text-muted">{{ product.description }}</small></p>
+    <button class="btn btn-dark" @click="cartMethods.addToCart(product)">
+            Себетке қосу
+          </button>
+  </div>
+</div>
+        </div>
   <div>
       <div v-if="isLoaded">
           <p>{{ product.category }}</p>
@@ -34,5 +42,17 @@
           ...loading
       </div>
   </div>
+
+
 </main>
 </template>
+
+
+<style>
+.card-body{
+text-align: right;
+}
+main{
+    height: 400%;
+}
+</style>

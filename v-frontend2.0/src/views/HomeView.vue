@@ -55,20 +55,23 @@ onMounted(async () => {
       </div>
       <p>
             <button style="margin: 2%;" onclick="#" class="btn btn-dark my-2">Басты бет</button>
-            <button style="margin: 2%" onclick="#" class="btn btn-dark my-2">Жеңілдіктер </button>
+            <button style="margin: 2%" onclick="sale" class="btn btn-dark my-2">Жеңілдіктер </button>
             <button style="margin: 2%" onclick="#"  class="btn btn-dark my-2">Жеткізу</button>
             <button style="margin: 2%" onclick="#" class="btn btn-dark my-2">Байланысу</button>
           </p>
     </section>
 
-  <div class="py-5 text-center container" style="margin-bottom: 50%; height: 180% ;">
+  <div class="py-5 text-center container" id="sale" style="margin-bottom: 50%; height: 180% ;">
   <h2 style="text-align:center">Жеңілдіктер</h2>
   <div class="rows " style="background-color:antiquewhite;">
-  <div class="card card-hover" v-for="product in products" :key="product.id" >
+  <div class="card card-hover shadow-lg p-3 mb-5 bg-body-tertiary rounded" v-for="product in products" :key="product.id" >
     <img class="card-img-top" style="height: 60%;" :src="product.image" :alt="product.title"/>
+
           <h3 class="card-title">{{ product.title }}</h3>
-           <p style="width: 60%; font-weight: bold; display: inline-block;" class="card-text">Бағасы:{{ product.price }}$</p>
-           <button class="podr" onclick="#" >Толығырақ</button>
+           <p style="width: 60%; font-weight: bold; display: inline-block; text-align: center;" class="card-text">Бағасы:{{ product.price }}$</p>
+    <RouterLink :to="'products/' + product.id">
+           <button class="btn btn-primary" onclick="#" >Толығырақ</button>
+    </RouterLink>
   </div>
 </div>
 
@@ -86,7 +89,7 @@ onMounted(async () => {
           <p style="font-weight: bold; color: blue; ">https://tgrad.kz</p>
           <p></p>
           <p></p>
-          <button style="border: 1px solid black;border-radius: 15%;">Қоңырау шалу</button>
+          <button class="btn btn-primary">Қоңырау шалу</button>
         </div>
         <div>
           <div style="height: 20%;"> 
@@ -97,7 +100,7 @@ onMounted(async () => {
           <p >Жұмыс уақыты: </p>
           <span style="font-weight: bold; color: blue; ">дс-жс 10.00-22.00 </span>
           <p></p>
-          <button style="border: 1px solid black; border-radius: 15%; ">Бронь жасау</button>
+          <button class="btn btn-primary">Бронь жасау</button>
         </div>
         <div>
           <div style="height: 20%;"> 
@@ -151,11 +154,8 @@ button:hover{
   color: blue;
   padding: 7px 14px;
 
-/* }
-  /* .main {
-    height: 300vh; */
 
-  } */
+  }
   .ul{
 margin: 1%; text-align: center;
 }
