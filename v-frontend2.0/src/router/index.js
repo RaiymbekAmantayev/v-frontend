@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ProductsView from '../views/ProductsView.vue'
-import AboutView from '../views/AboutView.vue'
-import PricingView from "@/views/PricingView.vue";
-import ProductView from "@/views/ProductView.vue";
-import CartView from "@/views/CartView.vue";
+import ProductView from '@/views/ProductView.vue'
+import CartView from '@/views/CartView.vue'
+import LoginView from '@/views/LoginView.vue'
+import WishlistView from '@/views/WishlistView.vue'
 
 const router = createRouter({
     history: createWebHistory(
@@ -25,23 +25,21 @@ const router = createRouter({
             component: ProductView
         },
         {
-            path: '/pricing',
-            name: 'pricing',
-            component: PricingView
-        },
-
-        {
-            path: '/about',
-            name: 'about',
-            component: AboutView
-        },
-
-        {
             path: '/cart',
             name: 'cart',
             component: CartView
         },
+        {
+            path: '/login',
+            name: 'login',
+            component: LoginView
+        },
+        {
+            path: '/wishlist',
+            name: 'wishlist',
+            component: WishlistView
+        },
     ]
 })
 
-export default router
+export default router;

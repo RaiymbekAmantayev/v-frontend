@@ -25,6 +25,20 @@ const fetchProducts = async () => {
   isLoaded.value = true
 }
 
+const addToWishlist = async (product) => {
+  await axios.post(
+    'http://localhost:8000/api/wishlist/',
+    {
+      product_id: product.id
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('access_token')}`
+      }
+    }
+  )
+}
+
 watch(route, async () => {
   isLoaded.value = false
   products.value = []
@@ -85,6 +99,7 @@ onMounted(async () => {
           <button class="btn btn-primary" @click="cartMethods.addToCart(product)">
             Add to cart
           </button>
+          <button class="btn btn-warning" @click="addToWishlist(product)">Add to wishlist</button>
         </div>
       </div>
       <nav class="py-4" aria-label="Page navigation example">
