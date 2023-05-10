@@ -19,9 +19,9 @@
 </script>
 
 <template>
-<main style="background-color: bisque;">
+<main style="background-color:aliceblue;" >
     <div style="height: 650px;">
-<div class=" container card mb-3" style="margin-top: 1%; background-color:beige">
+<div class=" container card mb-3" style="margin-top: 1%;">
   <img  style="height: 400px; width:70%;  margin-left: 15%; margin-top: 1%;"  :src="product.image" class="card-img-top" :alt="product.title">
   <div class="card-body" style="text-align: center;">
     <h2 class="card-title">Толық ақпарат:</h2>

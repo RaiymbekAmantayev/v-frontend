@@ -91,7 +91,7 @@ onMounted(async () => {
         :key="product.id"
       >
         <RouterLink :to="'products/' + product.id">
-          <img :src="product.image" class="card-img-top" :alt="product.title" />
+          <img :src="product.image" style="height: 200px; width: 200px;" class="card-img-top" :alt="product.title" />
         </RouterLink>
         <div class="card-body">
           <h5 class="card-title">{{ product.title }}</h5>

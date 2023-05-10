@@ -20,9 +20,9 @@ onMounted(async ()=>{
 </script>
 <template> 
         <!-- <div class="card-body" v-for="item in cart" :key="item.id"> -->
-<main style="background-color: cyan;" >
+<main style="background-color:aliceblue;" >
     <h1 style="text-align: center;">Cart</h1>
-    <div style="text-align: center; background-color: antiquewhite;" class="card-group container" v-for="item in cart" :key="item.id">
+    <div style="text-align: center;" class="card-group container" v-for="item in cart" :key="item.id">
   <div class="card" style="width: 50%; border: 1px solid black; margin: 2%; margin-left: 15%; margin-right: 15%;"> 
     <img :src="item.image" style="width: 300px; "  class="card-img-top" :alt="item.title">
     <div class="card-body justify-content-center ">
